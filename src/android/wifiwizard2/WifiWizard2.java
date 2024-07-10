@@ -345,7 +345,7 @@ public class WifiWizard2 extends CordovaPlugin {
     context.registerReceiver(
         receiver,
         new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION),
-        RECEIVER_NOT_EXPORTED
+        android.content.Context.RECEIVER_NOT_EXPORTED
     );
 
     if (!wifiManager.startScan()) {
@@ -1735,7 +1735,7 @@ public class WifiWizard2 extends CordovaPlugin {
     if( API_VERSION > 21 ){
       Log.d(TAG, "registerBindALL: registering net changed receiver");
       desired = new AP(netID,null,null);
-      cordova.getActivity().getApplicationContext().registerReceiver(networkChangedReceiver, NETWORK_STATE_CHANGED_FILTER, RECEIVER_NOT_EXPORTED);
+      cordova.getActivity().getApplicationContext().registerReceiver(networkChangedReceiver, NETWORK_STATE_CHANGED_FILTER, android.content.Context.RECEIVER_NOT_EXPORTED);
     } else {
       Log.d(TAG, "registerBindALL: API older than 21, bindall ignored.");
     }
