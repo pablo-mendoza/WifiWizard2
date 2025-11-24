@@ -48,32 +48,44 @@
             </feature>
         </config-file>
 
+        <!-- Habilitar Swift en el plugin -->
+        <preference name="UseSwiftLanguageVersion" value="5" />
+        <preference name="deployment-target" value="16.0" />
+        <config-file parent="SwiftVersion" target="build.xcconfig">
+            <string>5.0</string>
+        </config-file>
+
+        <source-file src="src/ios/WifiWizard2.swift" />
+
         <!-- frameworks -->
+        <framework src="SystemConfiguration.framework" />
         <framework src="NetworkExtension.framework" />
-            
+        <framework src="CoreLocation.framework" />
+
         <!-- Add HotspotConfiguration & NetworkExtension Capabilities  -->
         <config-file parent="com.apple.developer.networking.HotspotConfiguration" target="*/Entitlements-Debug.plist">
             <true/>
         </config-file>
         <config-file parent="com.apple.developer.networking.HotspotConfiguration" target="*/Entitlements-Release.plist">
-                 <true/>
+            <true/>
         </config-file>
-        <config-file parent="com.apple.developer.networking.networkextension" target="*/Entitlements-Debug.plist">
-                <array/>
-        </config-file>
-        <config-file parent="com.apple.developer.networking.networkextension" target="*/Entitlements-Release.plist">
-                <array/>
-        </config-file>
-	<config-file parent="com.apple.developer.networking.wifi-info" target="*/Entitlements-Debug.plist">
-                <true/>
+	    <config-file parent="com.apple.developer.networking.wifi-info" target="*/Entitlements-Debug.plist">
+            <true/>
         </config-file>
         <config-file parent="com.apple.developer.networking.wifi-info" target="*/Entitlements-Release.plist">
-                <true/>
+            <true/>
         </config-file>
-            
-        <header-file src="src/ios/WifiWizard2.h" />
-        <source-file src="src/ios/WifiWizard2.m" />
-        <framework src="SystemConfiguration.framework" />
+
+        <!-- <config-file parent="com.apple.developer.networking.networkextension" target="*/Entitlements-Debug.plist">
+            <array/>
+        </config-file>
+        <config-file parent="com.apple.developer.networking.networkextension" target="*/Entitlements-Release.plist">
+            <array/>
+        </config-file> -->
+
+        <!-- <header-file src="src/ios/WifiWizard2.h" />
+        <source-file src="src/ios/WifiWizard2.m" /> -->
+
     </platform>
 
 </plugin>
